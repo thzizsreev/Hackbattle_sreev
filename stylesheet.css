@@ -1,0 +1,10 @@
+
+table,td,th{
+   border-bottom: solid black;
+   border-collapse:collapse;
+   padding: 5px;
+}
+td,th{
+    border-left:solid blueviolet;
+    
+}

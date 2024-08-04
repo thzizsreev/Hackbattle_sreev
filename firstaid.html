@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amber's First Aid Guide</title>
+    <style>
+        body {
+            background-color: #647374;
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px auto;
+            max-width: 400px;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #bb514a;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .hidden {
+            display: none;
+            
+        }
+        .center{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 15%;
+        }
+        .pic{
+            width: 100%;
+            height: 100vh;
+            background: #d1d1d1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .upl{
+            width:400px;
+            background: #fff;
+            padding: 40px;
+            text-align:center;
+            color: #333;
+        }
+        .upl p{
+            font-weight: 500;
+            color: #000;
+        }
+        .upl img{
+            width: 100px;
+            height: 100px;
+            margin-top:48px;
+            margin-bottom:30px;
+        }
+        label{
+            display: block;
+            width: 200px;
+            background: #e3362c;
+            color: #fff;
+            padding: 12px;
+            margin: 10px auto;
+            border-radius:5px;
+            cursor: pointer;
+        }
+        input{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <img src = "images/plus.jpg" alt="plus" class = "center">
+    <div class="container" id="form-container">
+        <h1>Enter the Details</h1>
+        <form id="medical-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            
+            <label for="symptoms">Symptoms:</label>
+            <textarea id="symptoms" name="symptoms" rows="1" required></textarea>
+            
+            <button type="button" id="submit-button" >Submit</button>
+            <div class="pic">
+                <div class = "upl">
+                    <p>Upload the Picture</p>
+                    <img src = "images\default.jpg" id="uploadPic">
+                    <label for="input-file">update image</label>
+                  ]  <input type = "file" accept="image/jpe,image/png,image/jpg" id = "input-file">
+                </div>
+            </div>
+            
+            <script>
+               
+                let defPic = document.getElementById("uploadPic");
+                let inputPic = document.getElementById("input-file");
+                inputPic.onchange=function(){
+                    defPic.src=URL.createObjectURL(inputPic.files[0])
+                }
+            </script>
+        </form>
+    </div>
+
+    <div class="container hidden" id="result-container">
+        <h1>First Aid</h1>
+        <p>The suitable First Aid options are:</p>
+        <p id = "message"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const formContainer = document.getElementById('form-container');
+            const resultContainer = document.getElementById('result-container');
+            const submitButton = document.getElementById('submit-button');
+            const medicalForm = document.getElementById('medical-form');
+            
+            submitButton.addEventListener('click', function() {
+            formContainer.classList.add('hidden');
+            resultContainer.classList.remove('hidden');
+                let symptoms=document.querySelector("#symptoms");
+                
+
+                // Define the command to execute your Python script
+                
+                // Listen for output from the Python script
+                pythonProcess.stdout.on('data', (data) => {
+                let aid=data.toString()});
+                let message=document.querySelector("#message");
+                document.getElementById("message").innerHTML=aid;
+                    
+           });
+        });
+
+        
+    </script>
+</body>
+</html>
